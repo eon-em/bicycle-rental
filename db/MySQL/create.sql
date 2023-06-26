@@ -51,13 +51,13 @@ create table Bicicleta(
 create table Proposta(
 	id int not null auto_increment,
 	cliente_id bigint not null,
-	carro_id int not null,
+	bicicleta_id int not null,
 	valor decimal not null,
 	condPagamento varchar(50) not null,
 	dataAtual date not null,
 	statusCompra varchar(50) not null,
 	foreign key (cliente_id) references Cliente(id),
-	foreign key (carro_id) references carro(id),
+	foreign key (bicicleta_id) references Bicicleta(id),
 	primary key(id)
 );
 
