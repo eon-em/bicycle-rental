@@ -3,18 +3,15 @@ package br.ufscar.dc.dsw;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.annotation.WebServlet;
 
-@WebServlet(urlPatterns = { "/AloMundoServletNoMaven" })
+@WebServlet(urlPatterns = {"/TestarAloMundo"})
 public class AloMundoServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-
-	protected void doGet(HttpServletRequest request,
+    protected void doGet(HttpServletRequest request,
               HttpServletResponse response)
                  throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
