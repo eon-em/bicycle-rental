@@ -20,7 +20,7 @@
 				<h2>Gerenciamento de Usuários</h2>
 				<h2>
 					<a href="/<%= contextPath%>/admin/cadastroCliente">Cadastro Cliente</a> <br/>
-					<a href="/<%= contextPath%>/admin/cadastroLoja">Cadastro Loja</a>
+					<a href="/<%= contextPath%>/admin/cadastroLocadora">Cadastro Locadora</a>
 				</h2>
 			</div>
 

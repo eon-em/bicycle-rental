@@ -23,7 +23,7 @@ create table Cliente(
 	foreign key (id) references Usuario(id)
 );
 
-create table  Loja(
+create table Locadora(
 	id bigint not null auto_increment,
 	nome varchar(50) not null,
 	descricao varchar(120) not null,
@@ -34,8 +34,8 @@ create table  Loja(
 
 create table Bicicleta(
 	id int not null auto_increment,
-	cnpj_loja int not null,
-	id_loja bigint not null,
+	cnpj_locadora int not null,
+	id_locadora bigint not null,
 	placa varchar(7) not null,
 	modelo varchar(30) not null,
 	chassi varchar(30) not null,
@@ -45,7 +45,7 @@ create table Bicicleta(
 	valor float(11,2) not null,
 	fotos varchar(10),
 	primary key(id),
-  	foreign key(id_loja) references lojas(id)
+  	foreign key(id_locadora) references Locadora(id)
 );
 
 create table Proposta(

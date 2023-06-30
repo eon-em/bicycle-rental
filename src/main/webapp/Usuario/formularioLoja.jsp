@@ -20,7 +20,7 @@
         <h2>Página do Usuário</h2>
 		
 		<div align="center">
-			<h2>Gerenciamento de Lojas</h2>
+			<h2>Gerenciamento de Locadoras</h2>
 			<h2>
 				<a href="lista">Lista de Usuários</a>
 			</h2>
@@ -29,12 +29,12 @@
 			<c:choose>
 				<c:when test="${Usuario != null}">
 					<form action="atualizacao" method="post">
-						<%@include file="camposLoja.jsp"%>
+						<%@include file="camposLocadora.jsp"%>
 					</form>
 				</c:when>
 				<c:otherwise>
 					<form action="insercao" method="post">
-						<%@include file="camposLoja.jsp"%>
+						<%@include file="camposLocadora.jsp"%>
 					</form>
 				</c:otherwise>
 			</c:choose>
