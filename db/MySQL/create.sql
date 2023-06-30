@@ -1,8 +1,8 @@
-drop database if exists rcVeiculosBD;
+drop database if exists jegBicicletasBD;
 
-create database rcVeiculosBD;
+create database jegBicicletasBD;
 
-use rcVeiculosBD;
+use jegBicicletasBD;
 
 create table Usuario(
 	id bigint not null auto_increment,

@@ -5,13 +5,13 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>RC VEICULOS</title>
+		<title>JEG BIKES</title>
 		<link href="${pageContext.request.contextPath}/estilo.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body>
 		
 		<div id="borda">
-			<h1 id="titulo">RC VEICULOS</h1>
+			<h1 id="titulo">JEG BIKES</h1>
 			<%
 				String contextPath = request.getContextPath().replace("/", "");
 			%>
