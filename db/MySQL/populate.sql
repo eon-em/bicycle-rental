@@ -26,3 +26,7 @@ SET @id_usuario = LAST_INSERT_ID();
 
 INSERT INTO Cliente (id, cpf, nome, telefone, sexo, dataDeNascimento)
 VALUES (@id_usuario, '640.709.912-98', 'Gabrielly', '985188637', 'F', '1946-05-12');
+
+-- Make client 3 a locator owner
+INSERT INTO Locadora (id, nome, descricao, cnpj)
+VALUES (@id_usuario, 'Gabi Bicicletas', 'Viagens para toda a família', '50.745.536/0001-04');

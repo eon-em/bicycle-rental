@@ -27,7 +27,7 @@ create table Locadora(
 	id bigint not null auto_increment,
 	nome varchar(50) not null,
 	descricao varchar(120) not null,
-	cnpj varchar(14) not null unique,
+	cnpj varchar(24) not null unique,
 	primary key(id),
 	foreign key (id) references Usuario(id)
 );
