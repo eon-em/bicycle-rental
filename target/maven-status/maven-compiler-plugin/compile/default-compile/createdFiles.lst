@@ -1,10 +1,10 @@
-controller/AdminController.class
 dao/ClienteDAO.class
 controller/ClienteController.class
+domain/Cliente.class
+dao/UsuarioDAO.class
+controller/IndexController.class
+controller/AdminController.class
 domain/Usuario.class
 util/Erro.class
 dao/GenericDAO.class
-domain/Cliente.class
 controller/UsuarioController.class
-dao/UsuarioDAO.class
-controller/IndexController.class
