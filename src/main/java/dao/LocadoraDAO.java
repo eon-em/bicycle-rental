@@ -38,7 +38,7 @@ public class LocadoraDAO extends GenericDAO{
 
         List<Locadora> listaLocadoras = new ArrayList<>();
 
-        String sql = "SELECT * from lojas";
+        String sql = "SELECT * from Locadora";
 
         try {
             Connection conn = this.getConnection();

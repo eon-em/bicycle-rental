@@ -5,14 +5,14 @@
 <html>
 
 	<head>
-		<title>JEG BIKES</title>
+		<title>JEG BICICLETAS</title>
 		<link href="${pageContext.request.contextPath}/estilo.css" rel="stylesheet" type="text/css"/>
 	</head>
 	
 	<body>
 		
 		<div id="borda">
-			<h1 id="titulo">JEG BIKES</h1>
+			<h1 id="titulo">JEG BICICLETAS</h1>
         <%
 			String contextPath = request.getContextPath().replace("/", "");
         %>
@@ -29,6 +29,27 @@
 					</ul>	
 				</div>
 			</c:if>
+			<div align="center">
+				<h1>Gerenciamento de propostas</h1>
+				<h2>
+					<a href="lista">Lista de propostas</a>
+					<a href="/<%=contextPath%>/usuario/listaBicicletas">Lista de Bicicletas</a>
+				</h2>
+			</div>
+			<div align="center">
+				<c:choose>
+					<c:when test="${proposta.id != null}">
+						<form action="atualizacao" method="post">
+							<%@include file="campos.jsp"%>
+						</form>
+					</c:when>
+					<c:otherwise>
+						<form action="insercao" method="post">
+							<%@include file="campos.jsp"%>
+						</form>
+					</c:otherwise>
+				</c:choose>
+			</div>
 		</div>
 		
 		

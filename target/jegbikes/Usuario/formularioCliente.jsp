@@ -5,14 +5,14 @@
 <html>
 
 <head>
-	<title>JEG BIKES</title>
+	<title>JEG BICICLETAS</title>
 	<link href="${pageContext.request.contextPath}/estilo.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body>
 	
 	<div id="borda">
-		<h1 id="titulo">JEG BIKES</h1>
+		<h1 id="titulo">JEG BICICLETAS</h1>
         <%
 		String contextPath = request.getContextPath().replace("/", "");
         %>
