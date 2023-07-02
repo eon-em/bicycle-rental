@@ -24,10 +24,12 @@ public class BicicletaController extends HttpServlet {
 private static final long serialVersionUID = 1L;
     
     private BicicletaDAO dao;
+    private LocadoraDAO locadoraDao;
 
     @Override
     public void init() {
         dao = new BicicletaDAO();
+        locadoraDao = new LocadoraDAO();
     }
 
     @Override
@@ -65,6 +67,9 @@ private static final long serialVersionUID = 1L;
                 case "/lista":
                     lista(request, response);
                     break;
+                case "/listaLocadoras":
+                    listaLocadoras(request, response);
+                    break;
             }
         } catch (RuntimeException | IOException | ServletException e) {
             throw new ServletException(e);
@@ -76,6 +81,14 @@ private static final long serialVersionUID = 1L;
         List<Bicicleta> listaBicicletas = dao.getAll();
         request.setAttribute("listaBicicletas", listaBicicletas);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/bicicletas/lista.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    private void listaLocadoras(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        List<Locadora> listaLocadoras = locadoraDao.getAll();
+        request.setAttribute("listaLocadoras", listaLocadoras);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/locadoras/lista.jsp");
         dispatcher.forward(request, response);
     }
 

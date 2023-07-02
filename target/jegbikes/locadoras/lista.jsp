@@ -58,14 +58,12 @@
 				<table id="tabelaLocadoras" border="1">
 					<caption>Lista de Locadoras</caption>
 					<tr>
-						<th>ID</th>
 						<th>Nome</th>
 						<th>Descrição</th>
 						<th>CNPJ</th>
 					</tr>
 					<c:forEach var="locadora" items="${requestScope.listaLocadoras}">
 						<tr>
-							<td>${locadora.id}</td>
 							<td>${locadora.nome}</td>
 							<td>${locadora.descricao}</td>
 							<td>${locadora.cnpj}</td>
