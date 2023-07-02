@@ -59,6 +59,8 @@ public class AdminController extends HttpServlet {
                     case "/cadastroCliente":
                         apresentaFormCadastroCliente(request, response);
                         break;
+                    case "/cadastroLocadora":
+                        apresentaFormCadastroLocadora(request, response);
                     case "/insercao":
                         insere(request, response);
                         break;
@@ -109,6 +111,12 @@ public class AdminController extends HttpServlet {
     private void apresentaFormCadastroCliente(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Usuario/formularioCliente.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    private void apresentaFormCadastroLocadora(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/Usuario/formularioLocadora.jsp");
         dispatcher.forward(request, response);
     }
 
