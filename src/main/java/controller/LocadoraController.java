@@ -26,14 +26,14 @@ public class LocadoraController extends HttpServlet {
 private static final long serialVersionUID = 1L;
     
     private LocadoraDAO dao;
-    private BicicletaDAO daoCarro;
+    private BicicletaDAO daoBicicleta;
     private UsuarioDAO daoUsuario;
 
     @Override
     public void init() {
         dao = new LocadoraDAO();
         daoUsuario = new UsuarioDAO();
-        daoCarro = new BicicletaDAO();
+        daoBicicleta = new BicicletaDAO();
     }
 
     @Override
@@ -96,9 +96,9 @@ private static final long serialVersionUID = 1L;
     private void lista(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     	Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioLogado");
-        List<Bicicleta> listaCarros = daoCarro.getAll(usuario.getId());
-        request.setAttribute("listaCarros", listaCarros);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/locadora/listaCarroLocadora.jsp");
+        List<Bicicleta> listaBicicletas = daoBicicleta.getAll(usuario.getId());
+        request.setAttribute("listaBicicletas", listaBicicletas);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/locadora/listaBicicletaLocadora.jsp");
         dispatcher.forward(request, response);
     }
 

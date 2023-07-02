@@ -63,7 +63,7 @@
 						<th>Descrição</th>
 						<th>CNPJ</th>
 					</tr>
-					<c:forEach var="bicicleta" items="${requestScope.listaLocadoras}">
+					<c:forEach var="locadora" items="${requestScope.listaLocadoras}">
 						<tr>
 							<td>${locadora.id}</td>
 							<td>${locadora.nome}</td>
