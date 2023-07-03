@@ -2,15 +2,17 @@
 	pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<fmt:setBundle basename="message_pt" />
 
 <table border="1">
 	<caption>
 		<c:choose>
 			<c:when test="${Usuario != null}">
-                            Edição
+							<fmt:message key="user.edit" />:
                         </c:when>
 			<c:otherwise>
-                            Cadastro
+							<fmt:message key="user.reg" />:
                         </c:otherwise>
 		</c:choose>
 	</caption>
@@ -18,27 +20,27 @@
 		<input type="hidden" name="id" value="${Usuario.id}" />
 	</c:if>
 	<tr>
-		<td><label for="nome">Nome</label></td>
+		<td><label for="nome"><fmt:message key="user.name" />:</label></td>
 		<td><input type="text" id="nome" name="nome" size="50"
 			required value="${Locadora.nome}" /></td>
 	</tr>
 	<tr>
-		<td><label for="email">Email</label></td>
+		<td><label for="email"><fmt:message key="user.email" />:</label></td>
 		<td><input type="text" id="email" name="email" size="50" required
 			value="${Usuario.email}" /></td>
 	</tr>
 	<tr>
-		<td><label for="senha">Senha</label></td>
+		<td><label for="senha"><fmt:message key="user.pass" />:</label></td>
 		<td><input type="text" id="senha" name="senha" size="50" required
 			value="${Usuario.senha}" /></td>
 	</tr>
 	<tr>
-		<td><label for="papel">Papel</label></td>
+		<td><label for="papel"><fmt:message key="user.role" />:</label></td>
 		<td><input type="text" id="papel" name="papel" size="20" required
 			value="LOCADORA" readonly></td>
 	</tr>
 	<tr>
-		<td><label for="descricao">Descricao</label></td>
+		<td><label for="descricao"><fmt:message key="user.description" />:</label></td>
 		<td><input type="text" id="descricao" name="descricao" size="120" required
 			value="${Locadora.descricao}" /></td>
 	</tr>
@@ -48,7 +50,7 @@
 			value="${Locadora.cnpj}" /></td>
 	</tr>
 	<tr>
-		<td><label for="cidade">Cidade</label></td>
+		<td><label for="cidade"><fmt:message key="user.city" />:</label></td>
 		<td><input type="text" id="cidade" name="cidade" size="14" required
 			value="${Locadora.cidade}" /></td>
 	</tr>

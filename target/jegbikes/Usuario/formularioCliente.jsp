@@ -2,26 +2,28 @@
 	pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<fmt:setBundle basename="message_pt" />
 <html>
 
 <head>
-	<title>JEG BICICLETAS</title>
+	<title><fmt:message key="home.title" />:</title>
 	<link href="${pageContext.request.contextPath}/estilo.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body>
 	
 	<div id="borda">
-		<h1 id="titulo">JEG BICICLETAS</h1>
+		<h1 id="titulo"><fmt:message key="home.title" />:</h1>
         <%
 		String contextPath = request.getContextPath().replace("/", "");
         %>
-        <h2><a href="/<%=contextPath%>">Menu Principal</a> <br/> </h2>
+        <h2><a href="/<%=contextPath%>"><fmt:message key="home.menu" />:</a> <br/> </h2>
 
 		<div align="center">
-			<h2>Gerenciamento de Clientes</h2>
+			<h2><fmt:message key="user.client.management" />:</h2>
 			<h2>
-				<a href="lista">Lista de Usuários</a>
+				<a href="lista"><fmt:message key="user.list" />:</a>
 			</h2>
 		</div>
 		<div align="center">
