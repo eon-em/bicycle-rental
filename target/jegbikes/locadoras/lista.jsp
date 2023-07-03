@@ -2,9 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<fmt:setBundle basename="message_pt" />
+
 <html>
 <head>
-<title>JEG BICICLETAS</title>
+<title><fmt:message key="home.title" /></title>
 <link href="${pageContext.request.contextPath}/estilo.css" rel="stylesheet" type="text/css"/>
 </head>
 <script>
@@ -32,10 +35,14 @@
 </script>
 <body>
 	<div id="borda">
-		<h1 id="titulo">JEG BICICLETAS</h1>
+		<h1 id="titulo"><fmt:message key="home.title" /></h1>
         <%
 			String contextPath = request.getContextPath().replace("/", "");
         %>
+		<ul>
+			<li><a href="?locale=en">English</a></li>
+			<li><a href="?locale=pt">Português</a></li>
+		</ul>
         <h2><a href="/<%=contextPath%>">Menu Principal</a> <br/> </h2>
 
 		<c:if test="${mensagens.existeErros}">

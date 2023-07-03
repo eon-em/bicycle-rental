@@ -3,7 +3,8 @@
 <%@ page isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<fmt:setBundle basename="message_pt" />
+<c:set var="bundleName" value="${empty param.locale || param.locale eq 'pt' ? 'message_pt' : 'message_en'}" />
+<fmt:setBundle basename="${bundleName}" />
 
 <table border="1">
 	<caption>
@@ -35,6 +36,33 @@
 			value="ADMIN" readonly></td>	
 	</tr>
 	<tr>
-		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>
+		<td colspan="2" align="center"><input type="submit" value="Salva" onclick="validarFormulario()"/></td>
+		<script>
+			function validarFormulario() {
+				var email = document.getElementById("email").value;
+				var senha = document.getElementById("senha").value;
+				var papel = document.getElementById("papel").value;
+				var id = document.getElementById("id").value;
+  
+				if (email === "") {
+				  alert("O campo de E-mail está em branco!");
+				  return false; // Impede o envio do formulário
+				}
+				if (id === "") {
+				  alert("O campo de Usuário está em branco!");
+				  return false; // Impede o envio do formulário
+				}
+				if (senha === "") {
+				  alert("O campo de Senha está em branco!");
+				  return false; // Impede o envio do formulário
+				}
+				if (papel === "") {
+				  alert("O campo de Papel está em branco!");
+				  return false; // Impede o envio do formulário
+				}
+				return true; // Permite o envio do formulário
+			}
+		</script>
+}
 	</tr>
 </table>

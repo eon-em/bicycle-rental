@@ -3,7 +3,8 @@
 <%@ page isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<fmt:setBundle basename="message_pt" />
+<c:set var="bundleName" value="${empty param.locale || param.locale eq 'pt' ? 'message_pt' : 'message_en'}" />
+<fmt:setBundle basename="${bundleName}" />
 <html>
 
 	<head>
@@ -18,6 +19,10 @@
         <%
 			String contextPath = request.getContextPath().replace("/", "");
         %>
+		<ul>
+			<li><a href="?locale=en">English</a></li>
+			<li><a href="?locale=pt">Português</a></li>
+		</ul>
         <h2><a href="/<%=contextPath%>"><fmt:message key="home.menu" /></a> <br/> </h2>
 		<%
 			String contextPath = request.getContextPath().replace("/", "");
