@@ -47,6 +47,50 @@
 		<td><input type="text" id="cidade" name="cidade" size="14" required value="${Locadora != null ? Locadora.cidade : ''}" /></td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>
+		<td colspan="2" align="center"><input type="submit" value="Salva" onclick="validarFormulario()"/></td>
+		<script>
+
+			function validarEmail(email) {
+  				var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  				return regex.test(email);
+			}
+
+			function validarFormulario() {
+				var email = document.getElementById("email").value;
+				var senha = document.getElementById("senha").value;
+				var papel = document.getElementById("papel").value;
+				var nome = document.getElementById("nome").value;
+				var descricao = document.getElementById("descricao").value;
+				var cnpj = document.getElementById("cnpj").value;
+				var cidade = document.getElementById("cidade").value;
+				
+  
+				if (email === "") {
+				  alert("O campo de E-mail está em branco!");
+				  return false; // Impede o envio do formulário
+				}
+				if (!validarEmail(campoEmail)) {
+    				alert("O campo de e-mail possui um formato inválido!");
+    				return false; // Impede o envio do formulário
+  				}
+				if (nome === "") {
+				  alert("O campo de Nome está em branco!");
+				  return false; // Impede o envio do formulário
+				}
+				if (senha === "") {
+				  alert("O campo de Senha está em branco!");
+				  return false; // Impede o envio do formulário
+				}
+				if (cnpj === "") {
+				  alert("O campo de CNPJ está em branco!");
+				  return false; // Impede o envio do formulário
+				}
+				if (cidade === "") {
+				  alert("O campo de Cidade está em branco!");
+				  return false; // Impede o envio do formulário
+				}
+				return true; // Permite o envio do formulário
+			}
+		</script>
 	</tr>
 </table>
