@@ -67,7 +67,57 @@
   				var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   				return regex.test(email);
 			}
-
+			function validarSexo(sexo) {
+  				return sexo === "M" || sexo === "F";
+			}
+			function validarDataNascimento(data) {
+				var regex = /^\d{2}\/\d{2}\/\d{4}$/;
+				
+				if (!regex.test(data)) {
+				  return false; // Formato inválido de data (dd/mm/yyyy)
+				}
+				
+				var partes = data.split('/');
+				var dia = parseInt(partes[0], 10);
+				var mes = parseInt(partes[1], 10);
+				var ano = parseInt(partes[2], 10);
+				
+				if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || ano < 1900 || ano > new Date().getFullYear()) {
+				  return false; // Data inválida
+				}
+				
+				var dataNascimento = new Date(ano, mes - 1, dia);
+				
+				if (dataNascimento.getDate() !== dia || dataNascimento.getMonth() !== (mes - 1) || dataNascimento.getFullYear() !== ano) {
+				  return false; // Data inválida (por exemplo, 31 de fevereiro)
+				}
+				
+				return true; // Data de nascimento válida
+			}
+			function validarData(data) {
+			  var regex = /^\d{2}\/\d{2}\/\d{4}$/;
+				  
+			  if (!regex.test(data)) {
+			    return false; // Formato inválido de data (dd/mm/yyyy)
+			}
+				  
+			  var partes = data.split('/');
+			  var dia = parseInt(partes[0], 10);
+			  var mes = parseInt(partes[1], 10);
+			  var ano = parseInt(partes[2], 10);
+			  
+			  var dataObjeto = new Date(ano, mes - 1, dia);
+			  
+			  if (
+			    dataObjeto.getDate() !== dia ||
+			    dataObjeto.getMonth() !== (mes - 1) ||
+			    dataObjeto.getFullYear() !== ano
+			  ) {
+			    return false; // Data inválida (por exemplo, 31 de fevereiro)
+			  }
+			  
+			  return true; // Data válida
+			}
 			function validarFormulario() {
 				var email = document.getElementById("email").value;
 				var senha = document.getElementById("senha").value;
@@ -114,9 +164,7 @@
 				  alert("O campo de Senha está em branco!");
 				  return false; // Impede o envio do formulário
 				}
-				function validarSexo(sexo) {
-  					return sexo === "M" || sexo === "F";
-				}
+				
 				if (!validarSexo(campoSexo)) {
     				alert("O campo de sexo possui um valor inválido! Digite M ou F!");
     				return false; // Impede o envio do formulário
@@ -125,30 +173,11 @@
 				  alert("O campo de Senha está em branco!");
 				  return false; // Impede o envio do formulário
 				}
-				function validarDataNascimento(data) {
-					var regex = /^\d{2}\/\d{2}\/\d{4}$/;
-					
-					if (!regex.test(data)) {
-					  return false; // Formato inválido de data (dd/mm/yyyy)
-					}
-					
-					var partes = data.split('/');
-					var dia = parseInt(partes[0], 10);
-					var mes = parseInt(partes[1], 10);
-					var ano = parseInt(partes[2], 10);
-					
-					if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || ano < 1900 || ano > new Date().getFullYear()) {
-					  return false; // Data inválida
-					}
-					
-					var dataNascimento = new Date(ano, mes - 1, dia);
-					
-					if (dataNascimento.getDate() !== dia || dataNascimento.getMonth() !== (mes - 1) || dataNascimento.getFullYear() !== ano) {
-					  return false; // Data inválida (por exemplo, 31 de fevereiro)
-					}
-					
-					return true; // Data de nascimento válida
-				}
+				
+				if (!validarData(campoData)) {
+				    alert("O campo de data possui uma data inválida!");
+				    return false; // Impede o envio do formulário
+				  }
 				if (data === "") {
 				  alert("O campo de Papel está em branco!");
 				  return false; // Impede o envio do formulário
