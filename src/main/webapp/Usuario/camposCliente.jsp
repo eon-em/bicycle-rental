@@ -160,19 +160,11 @@
 				  alert("O campo de Senha está em branco!");
 				  return false; // Impede o envio do formulário
 				}
-				if (sexo === "") {
-				  alert("O campo de Senha está em branco!");
-				  return false; // Impede o envio do formulário
-				}
 				
 				if (!validarSexo(campoSexo)) {
     				alert("O campo de sexo possui um valor inválido! Digite M ou F!");
     				return false; // Impede o envio do formulário
   				}
-				if (sexo === "") {
-				  alert("O campo de Senha está em branco!");
-				  return false; // Impede o envio do formulário
-				}
 				
 				if (!validarData(campoData)) {
 				    alert("O campo de data possui uma data inválida!");
