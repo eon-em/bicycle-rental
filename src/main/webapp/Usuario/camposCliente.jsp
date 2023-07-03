@@ -141,10 +141,6 @@
 				  alert("O campo de Papel está em branco!");
 				  return false; // Impede o envio do formulário
 				}
-				if (!validarDataNascimento(data)) {
-    				alert("O campo de data de nascimento possui uma data inválida!");
-    				return false; // Impede o envio do formulário
-  				}
 				return true; // Permite o envio do formulário
 			}
 		</script>
