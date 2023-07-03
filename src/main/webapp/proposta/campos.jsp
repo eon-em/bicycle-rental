@@ -45,5 +45,18 @@
 	</tr>
 	<tr>
 		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>
+		<td colspan="2" align="center"><input type="button" name="limpar" value="Limpar" onclick="limparForm()"/></td>
+		
+
+		<script>
+			function limparForm(){
+				document.getElementById('valor').value = "";
+				document.getElementById('condPagamento').value = "";
+				document.getElementById('idBicicleta').value = "";
+				document.getElementById('nomeLocadora').value = "";
+				document.getElementById('idCliente').value = "";
+			}
+
+		</script>
 	</tr>
 </table>
