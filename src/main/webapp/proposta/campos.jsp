@@ -3,15 +3,16 @@
 	pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <table border="1">
 	<caption>
 		<c:choose>
 			<c:when test="${proposta.id != null}">
-                            Edição
+							<fmt:message key="offer.edit" />:
                         </c:when>
 			<c:otherwise>
-                            Cadastro
+							<fmt:message key="offer.reg" />:
                         </c:otherwise>
 		</c:choose>
 	</caption>
@@ -19,7 +20,7 @@
 		<input type="hidden" name="id" value="${proposta.id}" />
 	</c:if>
 	<tr>
-		<td><label for="valor">Valor</label></td>
+		<td><label for="valor"><fmt:message key="offer.value" />:</label></td>
 		<td><input type="number" min="0" step=".01" id="valor" name="valor" size="20" min="0.01" step="any"
 			required value="${proposta.valor}" /></td>
 	</tr>
@@ -45,18 +46,5 @@
 	</tr>
 	<tr>
 		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>
-		<td colspan="2" align="center"><input type="button" name="limpar" value="Limpar" onclick="limparForm()"/></td>
-		
-
-		<script>
-			function limparForm(){
-				document.getElementById('valor').value = "";
-				document.getElementById('condPagamento').value = "";
-				document.getElementById('idBicicleta').value = "";
-				document.getElementById('nomeLocadora').value = "";
-				document.getElementById('idCliente').value = "";
-			}
-
-		</script>
 	</tr>
 </table>
