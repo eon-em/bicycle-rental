@@ -11,7 +11,7 @@
 	function filterFunction() {
 	  // Declare variables
 	  var input, filter, table, tr, td, i, txtValue;
-	  input = document.getElementById("modelFilter");
+	  input = document.getElementById("cityFilter");
 	  filter = input.value.toUpperCase();
 	  table = document.getElementById("tabelaLocadoras");
 	  tr = table.getElementsByTagName("tr");
@@ -54,19 +54,21 @@
 			</div>
 
 			<div align="center">
-			<!-- <input type="text" id="modelFilter" onkeyup="filterFunction()" placeholder ="Procure por cidade"> -->
+			<input type="text" id="modelFilter" onkeyup="filterFunction()" placeholder ="Procure por cidade">
 				<table id="tabelaLocadoras" border="1">
 					<caption>Lista de Locadoras</caption>
 					<tr>
 						<th>Nome</th>
 						<th>Descrição</th>
 						<th>CNPJ</th>
+						<th>Cidade</th>
 					</tr>
 					<c:forEach var="locadora" items="${requestScope.listaLocadoras}">
 						<tr>
 							<td>${locadora.nome}</td>
 							<td>${locadora.descricao}</td>
 							<td>${locadora.cnpj}</td>
+							<td>${locadora.cidade}</td>
 					</c:forEach>
 				</table>
 			</div>

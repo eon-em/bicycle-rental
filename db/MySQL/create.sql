@@ -28,6 +28,7 @@ create table Locadora(
 	nome varchar(50) not null,
 	descricao varchar(120) not null,
 	cnpj varchar(24) not null unique,
+	cidade varchar(30) not null, 
 	primary key(id),
 	foreign key (id) references Usuario(id)
 );

@@ -48,6 +48,11 @@
 			value="${Locadora.cnpj}" /></td>
 	</tr>
 	<tr>
+		<td><label for="cidade">Cidade</label></td>
+		<td><input type="text" id="cidade" name="cidade" size="14" required
+			value="${Locadora.cidade}" /></td>
+	</tr>
+	<tr>
 		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>
 	</tr>
 </table>

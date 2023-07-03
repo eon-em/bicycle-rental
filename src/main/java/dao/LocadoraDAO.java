@@ -15,7 +15,7 @@ public class LocadoraDAO extends GenericDAO{
 	
 	public void insert(Locadora locadora) {
 
-        String sql = "INSERT INTO Locadora (id, nome, descricao, cnpj) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO Locadora (id, nome, descricao, cnpj, cidade) VALUES (?,?,?,?,?)";
 
         try {
             Connection conn = this.getConnection();
@@ -25,6 +25,7 @@ public class LocadoraDAO extends GenericDAO{
             statement.setString(2, locadora.getNome());
             statement.setString(3, locadora.getDescricao());
             statement.setString(4, locadora.getCnpj());
+            statement.setString(5, locadora.getCidade());
             statement.executeUpdate();
 
             statement.close();
@@ -50,8 +51,9 @@ public class LocadoraDAO extends GenericDAO{
                 String nome = resultSet.getString("nome");
                 String descricao = resultSet.getString("descricao");
                 String cnpj = resultSet.getString("cnpj");
+                String cidade = resultSet.getString("cidade");
                 
-                Locadora locadora = new Locadora(id, nome, descricao, cnpj);
+                Locadora locadora = new Locadora(id, nome, descricao, cnpj, cidade);
                 listaLocadoras.add(locadora);
             }
 
@@ -83,7 +85,7 @@ public class LocadoraDAO extends GenericDAO{
 	
 	public void update(Locadora locadora) {
         String sql = "UPDATE Locadora SET nome = ?, descricao = ?";
-        sql += ", cnpj = ? WHERE id = ?";
+        sql += ", cnpj = ?, cidade = ? WHERE id = ?";
 
         try {
             Connection conn = this.getConnection();
@@ -92,7 +94,8 @@ public class LocadoraDAO extends GenericDAO{
             statement.setString(1, locadora.getNome());
             statement.setString(2, locadora.getDescricao());
             statement.setString(3, locadora.getCnpj());
-            statement.setLong(4, locadora.getId_usuario());
+            statement.setString(4, locadora.getCidade());
+            statement.setLong(5, locadora.getId_usuario());
             statement.executeUpdate();
 
             statement.close();
@@ -117,7 +120,8 @@ public class LocadoraDAO extends GenericDAO{
             	String nome = resultSet.getString("nome");
                 String descricao = resultSet.getString("descricao");
                 String cnpj = resultSet.getString("cnpj");
-                locadora = new Locadora(id, nome, descricao, cnpj);
+                String cidade = resultSet.getString("cidade");
+                locadora = new Locadora(id, nome, descricao, cnpj, cidade);
             }
 
             resultSet.close();

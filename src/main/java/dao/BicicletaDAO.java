@@ -64,8 +64,9 @@ public class BicicletaDAO extends GenericDAO{
             	Long id_locadora = resultSet.getLong("id_locadora");
             	String nome = resultSet.getString("nome");
             	String descricao_locadora = resultSet.getString("l.descricao");
+				String cidade = resultSet.getString("l.cidade");
             	
-            	Locadora locadora = new Locadora(id_locadora, nome, descricao_locadora, cnpj_locadora);
+            	Locadora locadora = new Locadora(id_locadora, nome, descricao_locadora, cnpj_locadora, cidade);
             	Bicicleta bicicleta = new Bicicleta(id, locadora, placa, modelo, chassi, ano, quilometragem, descricao, valor, fotos);
             	listaBicicletas.add(bicicleta);
             }
@@ -104,8 +105,9 @@ public class BicicletaDAO extends GenericDAO{
 	            	Long id_locadora = resultSet.getLong("id_locadora");
 	            	String nome = resultSet.getString("nome");
 	            	String descricao_locadora = resultSet.getString("l.descricao");
+					String cidade = resultSet.getString("l.cidade");
 	            	
-	            	Locadora locadora = new Locadora(id_locadora, nome, descricao_locadora, cpnj_locadora);
+	            	Locadora locadora = new Locadora(id_locadora, nome, descricao_locadora, cpnj_locadora, cidade);
 	            	Bicicleta bicicleta = new Bicicleta(id, locadora, placa, modelo, chassi, ano, quilometragem, descricao, valor, fotos);
 	            	if( identificador == id_locadora) {
 		            	listaBicicletas.add(bicicleta);

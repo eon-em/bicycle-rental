@@ -136,8 +136,9 @@ private static final long serialVersionUID = 1L;
         String nome = request.getParameter("nome");
         String descricao = request.getParameter("descricao");
         String cnpj = request.getParameter("cnpj");
+        String cidade = request.getParameter("cidade");
         
-        Locadora locadora = new Locadora(id, nome, descricao, cnpj);
+        Locadora locadora = new Locadora(id, nome, descricao, cnpj, cidade);
         dao.insert(locadora);
         response.sendRedirect("lista");
     }
@@ -151,9 +152,10 @@ private static final long serialVersionUID = 1L;
     	String nome = request.getParameter("nome");
         String descricao = request.getParameter("descricao");
         String cnpj = request.getParameter("cnpj");
+        String cidade = request.getParameter("cidade");
        
         
-        Locadora locadora = new Locadora(id, nome, descricao, cnpj);
+        Locadora locadora = new Locadora(id, nome, descricao, cnpj, cidade);
         dao.update(locadora);
         response.sendRedirect("lista");
     }
