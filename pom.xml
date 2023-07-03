@@ -66,6 +66,25 @@
            <update>true</update>
          </configuration>
        </plugin>
+    <plugin>
+	    <groupId>org.codehaus.mojo</groupId>
+	    <artifactId>native2ascii-maven-plugin</artifactId>
+	    <version>1.0-beta-1</version>
+	    <executions>
+		    <execution>
+			    <id>native2ascii-utf8-resources</id>
+			    <goals>
+				    <goal>native2ascii</goal>
+			    </goals>
+			    <configuration>
+				    <dest>${project.build.directory}/classes</dest>
+				    <src>${project.resources[0].directory}</src>
+				    <encoding>UTF-8</encoding>
+			    </configuration>
+		    </execution>
+	    </executions>
+    </plugin>
+
      </plugins>
      <pluginManagement>
        <!-- lock down plugins versions to avoid using Maven defaults (may be 
@@ -101,6 +120,11 @@
            <version>2.8.2</version>
          </plugin>
        </plugins>
+     </pluginManagement>
+   </build>
+ </project>
+
+
      </pluginManagement>
    </build>
  </project>
