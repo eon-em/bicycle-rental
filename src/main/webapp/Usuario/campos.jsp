@@ -34,5 +34,15 @@
 	</tr>
 	<tr>
 		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>
+		<td colspan="2" align="center"><input type="button" name="limpar" value="Limpar" onclick="limparForm()"/></td>
+		
+
+		<script>
+			function limparForm(){
+				document.getElementById('email').value = "";
+				document.getElementById('senha').value = "";
+				document.getElementById('papel').value = "";
+				document.getElementById('id').value = "";
+			}
 	</tr>
 </table>
