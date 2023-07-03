@@ -46,6 +46,33 @@
 			value="${proposta.cliente.id_usuario}" /></td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>
+		<td colspan="2" align="center"><input type="submit" value="Salva" onclick="validarFormulario()"/></td>
+		<script>
+
+			function validarFormulario() {
+				var condPagamento = document.getElementById("condPagamento").value;
+				var idBicicleta = document.getElementById("idBicicleta").value;
+				var nomeLocadora = document.getElementById("nomeLocadora").value;
+				var idCliente = document.getElementById("idCliente").value;				
+  
+				if (condPagamento === "") {
+				  alert("O campo de Condições de Pagamento está em branco!");
+				  return false; // Impede o envio do formulário
+				}
+				if (idBicicleta === "") {
+				  alert("O campo de IdBicicleta está em branco!");
+				  return false; // Impede o envio do formulário
+				}
+				if (nomeLocadora === "") {
+				  alert("O campo do Nome da Locadora está em branco!");
+				  return false; // Impede o envio do formulário
+				}
+				if (idCliente === "") {
+				  alert("O campo de Cliente está em branco!");
+				  return false; // Impede o envio do formulário
+				}
+				return true; // Permite o envio do formulário
+			}
+		</script>
 	</tr>
 </table>
