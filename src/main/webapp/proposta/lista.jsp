@@ -6,17 +6,17 @@
 <fmt:setBundle basename="message_pt" />
 <html>
 <head>
-<title><fmt:message key="home.title" />:</title>
+<title><fmt:message key="home.title" /></title>
 <link href="${pageContext.request.contextPath}/estilo.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 	
 	<div id="borda"> 
-		<h1 id="titulo"><fmt:message key="home.title" />:</h1>
+		<h1 id="titulo"><fmt:message key="home.title" /></h1>
         <%
 			String contextPath = request.getContextPath().replace("/", "");
         %>
-        <h2><a href="/<%=contextPath%>"><fmt:message key="home.menu" />:</a> <br/> </h2>
+        <h2><a href="/<%=contextPath%>"><fmt:message key="home.menu" /></a> <br/> </h2>
 		<c:if test="${mensagens.existeErros}">
 	    <div id="erro">
 	        <ul>
@@ -30,22 +30,22 @@
 		String contextPath = request.getContextPath().replace("/", "");
 	%>
 	<div align="center">
-		<h1><fmt:message key="offer.list" />:</h1>
+		<h1><fmt:message key="offer.list" /></h1>
 		<h2>
-			<a href="/<%=contextPath%>/usuario"><fmt:message key="user.menu" />:</a>
+			<a href="/<%=contextPath%>/usuario"><fmt:message key="user.menu" /></a>
 		</h2>
 	</div>
 
 	<div align="center">
 		<table border="1">
-			<caption><fmt:message key="offer.list" />:</caption>
+			<caption><fmt:message key="offer.list" /></caption>
 			<tr>
 				<th>ID</th>
-				<th><fmt:message key="bike.model" />:</th>
-				<th><fmt:message key="bike.rental" />:</th>
-				<th><fmt:message key="bike.pay" />:</th>
-				<th><fmt:message key="bike.status" />:</th>
-				<th><fmt:message key="offer.date" />:</th>
+				<th><fmt:message key="bike.model" /></th>
+				<th><fmt:message key="bike.rental" /></th>
+				<th><fmt:message key="bike.pay" /></th>
+				<th><fmt:message key="bike.status" /></th>
+				<th><fmt:message key="offer.date" /></th>
 			</tr>
 			<c:forEach var="Proposta" items="${requestScope.listaProposta}">
 				<tr>

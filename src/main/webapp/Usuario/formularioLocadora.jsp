@@ -7,24 +7,24 @@
 <html>
 
 <head>
-	<title><fmt:message key="home.title" />:</title>
+	<title><fmt:message key="home.title" /></title>
 	<link href="${pageContext.request.contextPath}/estilo.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body>
 	
 	<div id="borda">
-		<h1 id="titulo"><fmt:message key="home.title" />:</h1>
+		<h1 id="titulo"><fmt:message key="home.title" /></h1>
         <%
             String contextPath = request.getContextPath().replace("/", "");
         %>
-        <h2><a href="/<%=contextPath%>"><fmt:message key="home.menu" />:</a> <br/> </h2>
-        <h2><fmt:message key="user.page.title" />:</h2>
+        <h2><a href="/<%=contextPath%>"><fmt:message key="home.menu" /></a> <br/> </h2>
+        <h2><fmt:message key="user.page.title" /></h2>
 		
 		<div align="center">
-			<h2><fmt:message key="user.rental.management" />:</h2>
+			<h2><fmt:message key="user.rental.management" /></h2>
 			<h2>
-				<a href="lista"><fmt:message key="user.list" />:</a>
+				<a href="lista"><fmt:message key="user.list" /></a>
 			</h2>
 		</div>
 		<div align="center">

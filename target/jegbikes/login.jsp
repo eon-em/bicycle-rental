@@ -7,17 +7,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title><fmt:message key="home.title" />:</title>
+        <title><fmt:message key="home.title" /></title>
         <link href="${pageContext.request.contextPath}/estilo.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div id="borda">
-            <h1 id="titulo"><fmt:message key="home.title" />:</h1>
+            <h1 id="titulo"><fmt:message key="home.title" /></h1>
             <%
 			String contextPath = request.getContextPath().replace("/", "");
             %>
-            <h2><a href="/<%=contextPath%>"><fmt:message key="home.menu" />:</a></h2> <br/>
-            <h2><fmt:message key="home.aut" />:</h2>
+            <h2><a href="/<%=contextPath%>"><fmt:message key="home.menu" /></a></h2> <br/>
+            <h2><fmt:message key="home.aut" /></h2>
             <c:if test="${mensagens.existeErros}">
                 <div id="erro">
                     <ul>
@@ -30,11 +30,11 @@
             <form method="post" action="doLogin.jsp">
                 <table>
                     <tr>
-                        <th><fmt:message key="home.user.login" />:</th>
+                        <th><fmt:message key="home.user.login" /></th>
                         <td><input type="text" name="email" value="${param.email}"/></td> 
                     </tr>
                     <tr>
-                        <th><fmt:message key="home.user.pass" />:</th> <td><input type="password" name="senha" value="${param.senha}" /></td>
+                        <th><fmt:message key="home.user.pass" /></th> <td><input type="password" name="senha" value="${param.senha}" /></td>
                     </tr>
                     <tr>
                         <td colspan="2"> 

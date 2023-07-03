@@ -7,18 +7,18 @@
 <html>
 
 	<head>
-		<title><fmt:message key="home.title" />:</title>
+		<title><fmt:message key="home.title" /></title>
 		<link href="${pageContext.request.contextPath}/estilo.css" rel="stylesheet" type="text/css"/>
 	</head>
 	
 	<body>
 		
 		<div id="borda">
-			<h1 id="titulo"><fmt:message key="home.title" />:</h1>
+			<h1 id="titulo"><fmt:message key="home.title" /></h1>
         <%
 			String contextPath = request.getContextPath().replace("/", "");
         %>
-        <h2><a href="/<%=contextPath%>"><fmt:message key="home.menu" />:</a> <br/> </h2>
+        <h2><a href="/<%=contextPath%>"><fmt:message key="home.menu" /></a> <br/> </h2>
 		<%
 			String contextPath = request.getContextPath().replace("/", "");
 		%>
@@ -32,9 +32,9 @@
 				</div>
 			</c:if>
 			<div align="center">
-				<h1><fmt:message key="offer.management" />:</h1>
+				<h1><fmt:message key="offer.management" /></h1>
 				<h2>
-					<a href="lista"><fmt:message key="offer.list" />:</a>
+					<a href="lista"><fmt:message key="offer.list" /></a>
 					<a href="/<%=contextPath%>/usuario/listaBicicletas">Lista de Bicicletas</a>
 				</h2>
 			</div>

@@ -21,7 +21,7 @@
 		<input type="hidden" name="id" value="${proposta.id}" />
 	</c:if>
 	<tr>
-		<td><label for="valor"><fmt:message key="offer.value" />:</label></td>
+		<td><label for="valor"><fmt:message key="offer.value" /></label></td>
 		<td><input type="number" min="0" step=".01" id="valor" name="valor" size="20" min="0.01" step="any"
 			required value="${proposta.valor}" /></td>
 	</tr>
