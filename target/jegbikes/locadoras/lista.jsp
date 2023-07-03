@@ -17,8 +17,8 @@
 	  tr = table.getElementsByTagName("tr");
 	
 	  // Loop through all table rows, and hide those who don't match the search query
-	  for (i = 0; i < tr.length; i++) {
-	    td = tr[i].getElementsByTagName("td")[1];
+	  for (i = 0; i < tr.length; i++) { 
+	    td = tr[i].getElementsByTagName("td")[3];
 	    if (td) {
 	      txtValue = td.textContent || td.innerText;
 	      if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -31,8 +31,6 @@
 	}
 </script>
 <body>
-	
-	
 	<div id="borda">
 		<h1 id="titulo">JEG BICICLETAS</h1>
         <%
@@ -54,7 +52,7 @@
 			</div>
 
 			<div align="center">
-			<input type="text" id="modelFilter" onkeyup="filterFunction()" placeholder ="Procure por cidade">
+			<input type="text" id="cityFilter" onkeyup="filterFunction()" placeholder ="Procure por cidade">
 				<table id="tabelaLocadoras" border="1">
 					<caption>Lista de Locadoras</caption>
 					<tr>
