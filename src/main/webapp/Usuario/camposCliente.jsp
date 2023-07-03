@@ -121,10 +121,6 @@
 				  alert("O campo de Senha está em branco!");
 				  return false; // Impede o envio do formulário
 				}
-				if (papel === "") {
-				  alert("O campo de Papel está em branco!");
-				  return false; // Impede o envio do formulário
-				}
 				if (cpf === "") {
 				  alert("O campo de Senha está em branco!");
 				  return false; // Impede o envio do formulário
