@@ -94,30 +94,7 @@
 				
 				return true; // Data de nascimento válida
 			}
-			function validarData(data) {
-			  var regex = /^\d{2}\/\d{2}\/\d{4}$/;
-				  
-			  if (!regex.test(data)) {
-			    return false; // Formato inválido de data (dd/mm/yyyy)
-			}
-				  
-			  var partes = data.split('/');
-			  var dia = parseInt(partes[0], 10);
-			  var mes = parseInt(partes[1], 10);
-			  var ano = parseInt(partes[2], 10);
-			  
-			  var dataObjeto = new Date(ano, mes - 1, dia);
-			  
-			  if (
-			    dataObjeto.getDate() !== dia ||
-			    dataObjeto.getMonth() !== (mes - 1) ||
-			    dataObjeto.getFullYear() !== ano
-			  ) {
-			    return false; // Data inválida (por exemplo, 31 de fevereiro)
-			  }
-			  
-			  return true; // Data válida
-			}
+			
 			function validarFormulario() {
 				var email = document.getElementById("email").value;
 				var senha = document.getElementById("senha").value;
@@ -132,7 +109,7 @@
 				  alert("O campo de E-mail está em branco!");
 				  return false; // Impede o envio do formulário
 				}
-				if (!validarEmail(campoEmail)) {
+				if (!validarEmail(email)) {
     				alert("O campo de e-mail possui um formato inválido!");
     				return false; // Impede o envio do formulário
   				}
@@ -156,25 +133,19 @@
 				  alert("O campo de Papel está em branco!");
 				  return false; // Impede o envio do formulário
 				}
+				if (!validarSexo(sexo)) {
+    				alert("O campo de sexo possui um valor inválido! Digite M ou F!");
+    				return false; // Impede o envio do formulário
+  				}
 				if (sexo === "") {
 				  alert("O campo de Senha está em branco!");
 				  return false; // Impede o envio do formulário
 				}
-				
-				if (!validarSexo(campoSexo)) {
-    				alert("O campo de sexo possui um valor inválido! Digite M ou F!");
-    				return false; // Impede o envio do formulário
-  				}
-				
-				if (!validarData(campoData)) {
-				    alert("O campo de data possui uma data inválida!");
-				    return false; // Impede o envio do formulário
-				  }
 				if (data === "") {
 				  alert("O campo de Papel está em branco!");
 				  return false; // Impede o envio do formulário
 				}
-				if (!validarDataNascimento(campoDataNascimento)) {
+				if (!validarDataNascimento(data)) {
     				alert("O campo de data de nascimento possui uma data inválida!");
     				return false; // Impede o envio do formulário
   				}
