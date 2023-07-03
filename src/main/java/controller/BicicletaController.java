@@ -87,7 +87,7 @@ private static final long serialVersionUID = 1L;
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioLogado");
         List<Bicicleta> listaBicicletas = dao.getAllByLocadora(usuario.getId());
         request.setAttribute("listaBicicletas", listaBicicletas);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/bicicletas/lista.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/locadora/lista.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -96,7 +96,7 @@ private static final long serialVersionUID = 1L;
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioLogado");
         List<Bicicleta> listaBicicletas = dao.getAllByCliente(usuario.getId());
         request.setAttribute("listaBicicletas", listaBicicletas);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/bicicletas/lista.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/usuario/lista.jsp");
         dispatcher.forward(request, response);
     }
 
