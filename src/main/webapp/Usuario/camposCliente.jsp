@@ -102,11 +102,11 @@
 				  return false; // Impede o envio do formulário
 				}
 				if (cpf === "") {
-				  alert("O campo de Senha está em branco!");
+				  alert("O campo de CPF está em branco!");
 				  return false; // Impede o envio do formulário
 				}
 				if (telefone === "") {
-				  alert("O campo de Papel está em branco!");
+				  alert("O campo de Telefone está em branco!");
 				  return false; // Impede o envio do formulário
 				}
 				if (!validarSexo(sexo)) {
@@ -114,11 +114,11 @@
     				return false; // Impede o envio do formulário
   				}
 				if (sexo === "") {
-				  alert("O campo de Senha está em branco!");
+				  alert("O campo de Sexo está em branco!");
 				  return false; // Impede o envio do formulário
 				}
 				if (data === "") {
-				  alert("O campo de Papel está em branco!");
+				  alert("O campo de Data de Nascimento está em branco!");
 				  return false; // Impede o envio do formulário
 				}
 				return true; // Permite o envio do formulário
