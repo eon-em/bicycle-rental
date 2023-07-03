@@ -16,6 +16,7 @@
             %>
             <h2><a href="/<%=contextPath%>">Menu Principal</a> <br/> </h2>
             <h2><a href="/<%=contextPath%>/bicicleta/listaLocacoesCliente">Minhas Locações</a> <br/> </h2>
+            <h2><a href="/<%=contextPath%>/bicicleta/cadastro">Nova Locação</a> <br/> </h2>
         </div>
         
         

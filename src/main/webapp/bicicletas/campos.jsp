@@ -18,19 +18,19 @@
 		<input type="hidden" name="id" value="${bicicleta.id}" />
 	</c:if>
 	<tr>
-		<td><label for="cliente">ID Cliente</label></td>
-		<td><input type="text" id="cliente" name="cliente" size="45"
-			required value="${bicicleta.clienteId}" readonly/></td>
-	</tr>
-	<tr>
-		<td><label for="locadora">ID Locadora</label></td>
-		<td><input type="text" id="locadora" name="locadora" size="45"
-			required value="${bicicleta.locadoraId}" readonly/></td>
-	</tr>
+		<td><label for="locadora">Locadora</label></td>
+		<td>
+			<select id="locadora" name="locadora" required>
+				<c:forEach var="locadora" items="${requestScope.locadoras}">
+					<option value="${locadora.nome}">${locadora.nome}</option>
+				</c:forEach>
+			</select>
+		</td>
+	</tr>	
 	<tr>
 		<td><label for="dataLocacao">Data de Locação {yyyy-MM-dd}</label></td>
 		<td><input type="date" id="dataLocacao" name="dataLocacao"
-			required value="${bicicleta.dataLocacao}" readonly/></td>
+			required value="${bicicleta.dataLocacao}"/></td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>

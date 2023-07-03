@@ -18,9 +18,9 @@
         <h2><a href="/<%=contextPath%>">Menu Principal</a> <br/> </h2>
 		<div align="center">
 			<h2>Gerenciamento de Bicicletas</h2>
-			<h2>
-				<a href="${pageContext.request.contextPath}/locadora/lista">Menu da Locadora</a>
-			</h2>
+			<!-- <h2>
+				<a href="${pageContext.request.contextPath}/usuario">Menu do Usuário</a>
+			</h2> -->
 		</div>
 		<div align="center">
 			<c:choose>

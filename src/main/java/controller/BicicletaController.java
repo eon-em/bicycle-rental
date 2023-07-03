@@ -115,12 +115,21 @@ private static final long serialVersionUID = 1L;
         }
         return locadoras;
     }
+
+    private Long getLocadoraIdByName(String name) {
+        Map <String,Long> locadoras = new HashMap<>();
+        for (Locadora locadora: new LocadoraDAO().getAll()) {
+            locadoras.put(locadora.getNome(), locadora.getId_usuario());
+        }
+        return locadoras.get(name);
+    }
     
     private void apresentaFormCadastro(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("locadoras", getLocadoras());
+        List<Locadora> locadoras = locadoraDao.getAll();
+        request.setAttribute("locadoras", locadoras);
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioLogado");
-        request.setAttribute("Usuario", usuario);
+        request.setAttribute("usuario", usuario);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/bicicletas/formulario.jsp");
         dispatcher.forward(request, response);
     }
@@ -139,16 +148,18 @@ private static final long serialVersionUID = 1L;
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
 
-        Long clienteId = Long.parseLong(request.getParameter("clienteId"));
-        Long locadoraId = Long.parseLong(request.getParameter("locadoraId"));
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioLogado");
+        String locadoraName = request.getParameter("locadora");
         LocalDate dataLocacao = LocalDate.parse(request.getParameter("dataLocacao"));
 
-        Cliente cliente = new ClienteDAO().get(clienteId);
+        Long locadoraId = getLocadoraIdByName(locadoraName);
+
+        Cliente cliente = new ClienteDAO().get(usuario.getId());
         Locadora locadora = new LocadoraDAO().get(locadoraId);
         
         Bicicleta bicicleta = new Bicicleta(cliente, locadora, dataLocacao);
         dao.insert(bicicleta);
-    	RequestDispatcher dispatcher = request.getRequestDispatcher("/locadora/lista");
+    	RequestDispatcher dispatcher = request.getRequestDispatcher("/usuario/lista");
         dispatcher.forward(request, response);
 
     }
@@ -157,16 +168,18 @@ private static final long serialVersionUID = 1L;
             throws ServletException, IOException {
     	request.setCharacterEncoding("UTF-8");
     	
-        Long clienteId = Long.parseLong(request.getParameter("clienteId"));
-        Long locadoraId = Long.parseLong(request.getParameter("locadoraId"));
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioLogado");
+        String locadoraName = request.getParameter("locadora");
         LocalDate dataLocacao = LocalDate.parse(request.getParameter("dataLocacao"));
 
-        Cliente cliente = new ClienteDAO().get(clienteId);
+        Long locadoraId = getLocadoraIdByName(locadoraName);
+
+        Cliente cliente = new ClienteDAO().get(usuario.getId());
         Locadora locadora = new LocadoraDAO().get(locadoraId);
         
         Bicicleta bicicleta = new Bicicleta(cliente, locadora, dataLocacao);
         dao.update(bicicleta);
-    	RequestDispatcher dispatcher = request.getRequestDispatcher("/locadora/lista");
+    	RequestDispatcher dispatcher = request.getRequestDispatcher("/usuario/lista");
         dispatcher.forward(request, response);
     }
 
