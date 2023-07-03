@@ -77,7 +77,7 @@
 				  return false; // Formato inválido de data (dd/mm/yyyy)
 				}
 				
-				var partes = data.split('/');
+				var partes = data.split('-');
 				var dia = parseInt(partes[0], 10);
 				var mes = parseInt(partes[1], 10);
 				var ano = parseInt(partes[2], 10);
