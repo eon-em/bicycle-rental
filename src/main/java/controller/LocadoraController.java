@@ -73,9 +73,6 @@ private static final long serialVersionUID = 1L;
 	                case "/atualizacao":
 	                    atualize(request, response);
 	                    break;
-	                case "/lista":
-	                    lista(request, response);
-	                    break;
 	                default:
 	                	RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/locadora/index.jsp");
 	                    dispatcher.forward(request, response);
@@ -91,15 +88,6 @@ private static final long serialVersionUID = 1L;
 			RequestDispatcher rd = request.getRequestDispatcher("/noAuth.jsp");
 			rd.forward(request, response);
 		}
-    }
-
-    private void lista(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    	Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioLogado");
-        List<Bicicleta> listaBicicletas = daoBicicleta.getAll(usuario.getId());
-        request.setAttribute("listaBicicletas", listaBicicletas);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/locadora/listaBicicletaLocadora.jsp");
-        dispatcher.forward(request, response);
     }
 
     private Map<Long, String> getLocadoras() {

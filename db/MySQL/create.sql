@@ -35,18 +35,12 @@ create table Locadora(
 
 create table Bicicleta(
 	id int not null auto_increment,
-	cnpj_locadora int not null,
-	id_locadora bigint not null,
-	placa varchar(7) not null,
-	modelo varchar(30) not null,
-	chassi varchar(30) not null,
-	ano int(4) not null,
-	quilometragem int(10) not null,
-	descricao varchar(120) not null,
-	valor float(11,2) not null,
-	fotos varchar(10),
+	clienteId bigint not null,
+	locadoraId bigint not null,
+	dataLocacao date not null,
 	primary key(id),
-  	foreign key(id_locadora) references Locadora(id)
+  	foreign key(clienteId) references Cliente(id),
+	foreign key(locadoraId) references Locadora(id)
 );
 
 create table Proposta(

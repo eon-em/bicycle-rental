@@ -19,7 +19,7 @@
 		<div align="center">
 			<h2>Gerenciamento de Bicicletas</h2>
 			<h2>
-				<a href="${pageContext.request.contextPath}/locadora/lista">Lista de Bicicletas</a>
+				<a href="${pageContext.request.contextPath}/locadora/lista">Menu da Locadora</a>
 			</h2>
 		</div>
 		<div align="center">

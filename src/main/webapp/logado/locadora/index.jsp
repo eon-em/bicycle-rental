@@ -17,7 +17,7 @@
             <h2><a href="/<%=contextPath%>">Menu Principal</a> <br/> </h2>
             
             <p><a href="${pageContext.request.contextPath}/bicicleta/cadastro">Adicione Nova Bicicleta</a> </p>
-            <p><a href="${pageContext.request.contextPath}/locadora/lista">Lista de Bicicletas</a> </p> <br/>
+            <p><a href="${pageContext.request.contextPath}/bicicleta/listaLocacoesLocadora">Lista de Bicicletas</a> </p> <br/>
                
         </div>
         
