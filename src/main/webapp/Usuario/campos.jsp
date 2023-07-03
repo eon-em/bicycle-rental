@@ -44,5 +44,6 @@
 				document.getElementById('papel').value = "";
 				document.getElementById('id').value = "";
 			}
+		<script>
 	</tr>
 </table>
