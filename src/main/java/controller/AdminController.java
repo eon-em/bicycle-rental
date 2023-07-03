@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.ClienteDAO;
 import dao.UsuarioDAO;
+import dao.LocadoraDAO;
 import domain.Usuario;
 import domain.Cliente;
+import domain.Locadora;
 import util.Erro;
 
 @WebServlet(urlPatterns = "/admin/*")
@@ -25,11 +27,13 @@ public class AdminController extends HttpServlet {
     
     private UsuarioDAO dao;
     private ClienteDAO daoCliente;
+    private LocadoraDAO daoLocadora;
 
     @Override
     public void init() {
         dao = new UsuarioDAO();
         daoCliente = new ClienteDAO();
+        daoLocadora = new LocadoraDAO();
     }
 
     @Override
@@ -61,6 +65,7 @@ public class AdminController extends HttpServlet {
                         break;
                     case "/cadastroLocadora":
                         apresentaFormCadastroLocadora(request, response);
+                        break;
                     case "/insercao":
                         insere(request, response);
                         break;
@@ -126,14 +131,19 @@ public class AdminController extends HttpServlet {
         Usuario usuario = dao.getbyID(id);
         request.setAttribute("Usuario", usuario);
         
-        if(usuario.getPapel().equals("CLIENTE")){
-        		Cliente cliente = daoCliente.get(id);
-            	request.setAttribute("Cliente", cliente);
-            	RequestDispatcher dispatcher = request.getRequestDispatcher("/Usuario/formularioCliente.jsp");
-                dispatcher.forward(request, response);
+        if(usuario.getPapel().equals("LOCADORA")) {
+            Locadora locadora = daoLocadora.get(id);
+            request.setAttribute("locadora", locadora);
+        	RequestDispatcher dispatcher = request.getRequestDispatcher("/Usuario/formularioLocadora.jsp");
+            dispatcher.forward(request, response);
+        } else if (usuario.getPapel().equals("CLIENTE")) {
+        	Cliente cliente = daoCliente.get(id);
+            request.setAttribute("Cliente", cliente);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/Usuario/formularioCliente.jsp");
+            dispatcher.forward(request, response);
         } else {
-        		RequestDispatcher dispatcher = request.getRequestDispatcher("/Usuario/formulario.jsp");
-                dispatcher.forward(request, response);
+        	RequestDispatcher dispatcher = request.getRequestDispatcher("/Usuario/formulario.jsp");
+            dispatcher.forward(request, response);
         }
     }
 
@@ -150,8 +160,14 @@ public class AdminController extends HttpServlet {
         dao.insert(Usuario);
         Usuario = dao.getbyEmail(email);
 
-
-        if(papel.equals("CLIENTE")){
+        if (papel.equals("LOCADORA")) {
+        	String descricao = request.getParameter("descricao");
+        	String cnpj = request.getParameter("cnpj");
+            String cidade = request.getParameter("cidade");
+        	
+        	Locadora locadora = new Locadora(Usuario.getId(), nome, descricao, cnpj, cidade);
+        	daoLocadora.insert(locadora);
+        } else if (papel.equals("CLIENTE")){
         	String cpf = request.getParameter("cpf");
         	String telefone = request.getParameter("telefone");
     		String sexo = request.getParameter("sexo");
@@ -177,31 +193,39 @@ public class AdminController extends HttpServlet {
         Usuario Usuario = new Usuario(Usuario_id,  email, senha, papel);
         dao.update(Usuario);
         
-        if(papel.equals("CLIENTE")){
-        		String cpf = request.getParameter("cpf");
-        		String telefone = request.getParameter("telefone");
-        		String sexo = request.getParameter("sexo");
-        		LocalDate dataNascimento = LocalDate.parse(request.getParameter("dataDeNascimento"));
+        if( papel.equals("LOCADORA")) {
+        	String descricao = request.getParameter("descricao");
+        	String cnpj = request.getParameter("cnpj");
+            String cidade = request.getParameter("cidade");
+        	
+        	Locadora locadora = new Locadora(Usuario_id, nome, descricao, cnpj, cidade);
+        	daoLocadora.update(locadora);
+        } else if (papel.equals("CLIENTE")){
+        	String cpf = request.getParameter("cpf");
+        	String telefone = request.getParameter("telefone");
+        	String sexo = request.getParameter("sexo");
+        	LocalDate dataNascimento = LocalDate.parse(request.getParameter("dataDeNascimento"));
         		
-        		Cliente cliente = new Cliente(Usuario_id, cpf, telefone, nome, sexo, dataNascimento);
-        		daoCliente.update(cliente);
+        	Cliente cliente = new Cliente(Usuario_id, cpf, telefone, nome, sexo, dataNascimento);
+        	daoCliente.update(cliente);
         }
         response.sendRedirect("lista");
     }
 
     private void remove(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-        Long Usuario_id = Long.parseLong(request.getParameter("id"));
-
-        Usuario Usuario = new Usuario(Usuario_id);
-        Usuario usuario = dao.getbyID(Usuario_id);
+        Long usuarioId = Long.parseLong(request.getParameter("id"));
+        Usuario usuario = dao.getbyID(usuarioId);
         
-        if(usuario.getPapel().equals("CLIENTE")){
-        		Cliente cliente = daoCliente.get(Usuario_id);
-        		daoCliente.delete(cliente);
+        if (usuario.getPapel().equals("LOCADORA")) {
+        	Locadora locadora = daoLocadora.get(usuarioId);
+        	daoLocadora.delete(locadora);
+        } else if (usuario.getPapel().equals("CLIENTE")){
+        	Cliente cliente = daoCliente.get(usuarioId);
+        	daoCliente.delete(cliente);
         }
 
-        dao.delete(Usuario);
+        dao.delete(usuario);
         response.sendRedirect("lista");
     }
 }
