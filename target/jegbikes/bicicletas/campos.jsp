@@ -33,6 +33,24 @@
 			required value="${bicicleta.dataLocacao}"/></td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>
+		<td colspan="2" align="center"><input type="submit" value="Salvar" onclick="validarFormulario()"/></td>
+		<script>
+			
+			
+			function validarFormulario() {
+				var locadora = document.getElementById("locadora").value;
+				var dataLocacao = document.getElementById("dataLocacao").value;		
+  
+				if (locadora === "") {
+				  alert("O campo de Locadora está em branco!");
+				  return false; // Impede o envio do formulário
+				}
+				if (dataLocacao === "") {
+				  alert("O campo da Data de Locação está em branco!");
+				  return false; // Impede o envio do formulário
+				}
+				return true; // Permite o envio do formulário
+			}
+		</script>
 	</tr>
 </table>
