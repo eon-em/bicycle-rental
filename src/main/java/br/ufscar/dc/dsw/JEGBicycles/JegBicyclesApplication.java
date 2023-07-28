@@ -39,37 +39,37 @@ public class JegBicyclesApplication {
 			
 			//Locadoras
 			Locadora l1 = new Locadora();
-			l1.setEmail("loja 1");
-			l1.setPapel("LOJA");
+			l1.setEmail("locadora 1");
+			l1.setPapel("LOCADORA");
 			l1.setSenha(encoder.encode("123"));
-			l1.setNome("loja1");
+			l1.setNome("locadora1");
 			l1.setDescricao("Descrição 1");
 			l1.setCnpj("1234589");
 			locadoraDAO.save(l1);
 			
 			Locadora l2 = new Locadora();
-			l2.setEmail("loja 2");
-			l2.setPapel("LOJA");
+			l2.setEmail("locadora 2");
+			l2.setPapel("LOCADORA");
 			l2.setSenha(encoder.encode("123"));
-			l2.setNome("loja2");
+			l2.setNome("locadora1");
 			l2.setDescricao("Descrição 2");
 			l2.setCnpj("1234");
 			locadoraDAO.save(l2);
 			
 			Locadora l3 = new Locadora();
-			l3.setEmail("loja 3");
-			l3.setPapel("LOJA");
+			l3.setEmail("locadora 3");
+			l3.setPapel("LOCADORA");
 			l3.setSenha(encoder.encode("123"));
-			l3.setNome("loja3");
+			l3.setNome("locadora3");
 			l3.setDescricao("Descrição 3");
 			l3.setCnpj("1234588");
 			locadoraDAO.save(l3);
 			
 			Locadora l4 = new Locadora();
-			l4.setEmail("loja 4");
-			l4.setPapel("LOJA");
+			l4.setEmail("locadora 4");
+			l4.setPapel("LOCADORA");
 			l4.setSenha(encoder.encode("123"));
-			l4.setNome("loja4");
+			l4.setNome("locadora4");
 			l4.setDescricao("Descrição 4");
 			l4.setCnpj("1234588");
 			locadoraDAO.save(l3);
