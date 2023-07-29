@@ -49,6 +49,12 @@ public class BicicletaController {
 		model.addAttribute("bicicletas", bicicletaService.buscarTodos());
 		return "bicicleta/lista";
 	}
+
+	@GetMapping("/listarLocadora")
+	public String listarLocadora(ModelMap model) {
+		model.addAttribute("locadoras", listaLocadoras());
+		return "bicicleta/listaLocadora";
+	}
 	
 	@PostMapping("/salvar")
 	public String salvar(@Valid Bicicleta bicicleta, BindingResult result, RedirectAttributes attr) {

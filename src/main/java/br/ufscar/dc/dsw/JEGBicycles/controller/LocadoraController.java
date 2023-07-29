@@ -47,8 +47,7 @@ public class LocadoraController {
 		model.addAttribute("bicicletas", serviceBicicleta.buscarTodos());
 		return "locadora/listaBicicleta";
 	}
-	
-	
+
 	@PostMapping("/salvar")
 	public String salvar(@Valid Locadora locadora, BindingResult result, RedirectAttributes attr) {
 		

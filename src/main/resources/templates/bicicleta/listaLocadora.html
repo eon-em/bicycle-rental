@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8" />
+<title>Listar Locadoras</title>
+
+</head>
+<script>
+	function filterFunction() {
+	  // Declare variables
+	  var input, filter, table, tr, td, i, txtValue;
+	  input = document.getElementById("cityFilter");
+	  filter = input.value.toUpperCase();
+	  table = document.getElementById("tabelaLocadoras");
+	  tr = table.getElementsByTagName("tr");
+	
+	  // Loop through all table rows, and hide those who don't match the search query
+	  for (i = 0; i < tr.length; i++) {
+	    td = tr[i].getElementsByTagName("td")[4];
+	    if (td) {
+	      txtValue = td.textContent || td.innerText;
+	      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+	        tr[i].style.display = "";
+	      } else {
+	        tr[i].style.display = "none";
+	      }
+	    }
+	  }
+	}
+</script>
+<body>
+	<div class="container my-2" align="center">
+		<h1>Locadoras</h1>
+		<a th:href="@{/}">Home</a>
+		<hr>
+		<input type="text" id="cityFilter" onkeyup="filterFunction()" placeholder ="Procure pela cidade">
+		<table border="1" class="table table-striped table-responsive-md" id="tabelaLocadoras">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th th:text="Nome"></th>
+					<th th:text="Descrição"></th>
+					<th th:text="CNPJ"></th>
+					<th th:text="Cidade"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="locadora : ${locadoras}">
+					<td th:text="${locadora.id}"></td>
+					<td th:text="${locadora.nome}"></td>
+					<td th:text="${locadora.descricao}"></td>
+					<td th:text="${locadora.cnpj}"></td>
+					<td th:text="${locadora.cidade}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
