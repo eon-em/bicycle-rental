@@ -22,6 +22,9 @@ public class Locadora extends Usuario{
 	@UniqueCNPJ(message = "CNPJ já cadastrado.")
 	@Column(nullable = false, length = 19, unique = true)
 	private String cnpj;
+	@NotNull(message = "Campo obrigatório.")
+	@Column(nullable = false, length = 19)
+	private String cidade;
 	@OneToMany(mappedBy ="locadora", cascade = CascadeType.REMOVE)
 	private List<Bicicleta> bicicletas;
 
@@ -49,4 +52,11 @@ public class Locadora extends Usuario{
 		this.cnpj = cnpj;
 	}
 	
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
 }

@@ -21,4 +21,5 @@ public interface LocadoraDAO extends CrudRepository<Locadora, Long>{
 	
 	Locadora findByemail(String email);
 	
+	Locadora findBycidade(String cidade);
 }

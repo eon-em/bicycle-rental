@@ -41,6 +41,10 @@
 				<input th:if="${locadora.id == null}" type="number" th:field="*{cnpj}" placeholder="CNPJ" class="form-control mb-4 col-4" required>
 			
 			</p>
+				<label for="cidade">Cidade:</label> 
+				<span th:if="${#fields.hasErrors('cidade')}" th:errors="*{cidade}" class="text-danger">CAMPO OBRIGATÓRIO</span>
+				<input type="text" th:field="*{cidade}" placeholder="Cidade" class="form-control mb-4 col-4" required>
+
 			<button type="submit" class="btn btn-info col-2" >Salvar</button>
 
 		</form>

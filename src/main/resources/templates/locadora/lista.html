@@ -17,6 +17,7 @@
 					<th th:text="Nome"></th>
 					<th th:text="Descrição"></th>
 					<th th:text="CNPJ"></th>
+					<th th:text="Cidade"></th>
 					<th>Ações</th>
 				</tr>
 			</thead>
@@ -26,6 +27,7 @@
 					<td th:text="${locadora.nome}"></td>
 					<td th:text="${locadora.descricao}"></td>
 					<td th:text="${locadora.cnpj}"></td>
+					<td th:text="${locadora.cidade}"></td>
 										<td>
 						<a class="btn btn-info btn-sm"
 							th:href="@{/locadoras/editar/{id} (id=${locadora.id}) }" role="button"> 
