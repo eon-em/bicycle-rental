@@ -22,8 +22,8 @@ public class Locadora extends Usuario{
 	@UniqueCNPJ(message = "CNPJ já cadastrado.")
 	@Column(nullable = false, length = 19, unique = true)
 	private String cnpj;
-	@OneToMany(mappedBy ="loja", cascade = CascadeType.REMOVE)
-	private List<Bicicleta> carros;
+	@OneToMany(mappedBy ="locadora", cascade = CascadeType.REMOVE)
+	private List<Bicicleta> bicicletas;
 
 	public String getNome() {
 		return nome;

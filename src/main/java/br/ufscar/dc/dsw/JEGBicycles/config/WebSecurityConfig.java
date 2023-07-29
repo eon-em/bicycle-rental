@@ -44,10 +44,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-				.antMatchers("/", "/index", "/error","/carros/listar").permitAll()
-				.antMatchers("/propostas/**","/carros/**").hasAnyAuthority("CLIENTE","LOJA")
+				.antMatchers("/", "/index", "/error","/bicicletas/listar").permitAll()
+				.antMatchers("/propostas/**","/bicicletas/**").hasAnyAuthority("CLIENTE","LOCADORA")
 				.antMatchers("/usuarios/**", "/admin/**","/admins/**").hasAuthority("ADMIN")
-				.antMatchers("/lojas/**").hasAnyAuthority("LOJA","ADMIN")
+				.antMatchers("/locadoras/**").hasAnyAuthority("LOCADORA","ADMIN")
 				.antMatchers("/login/**", "/js/**", "/css/**", "/image/**", "/webjars/**").permitAll()
 				.anyRequest().authenticated()
 			.and()

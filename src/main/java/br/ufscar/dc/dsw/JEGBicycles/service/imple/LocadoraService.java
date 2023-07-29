@@ -16,8 +16,8 @@ public class LocadoraService implements ILocadoraService{
 	@Autowired
 	LocadoraDAO dao;
 	
-	public void salvar(Locadora loja) {
-		dao.save(loja);
+	public void salvar(Locadora locadora) {
+		dao.save(locadora);
 	}
 
 	public void excluir(Long id) {

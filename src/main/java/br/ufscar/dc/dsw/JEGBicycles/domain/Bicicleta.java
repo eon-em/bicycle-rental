@@ -14,9 +14,9 @@ import javax.validation.constraints.NotNull;
 @Table(name = "Bicicleta")
 public class Bicicleta extends AbstractEntity<Long>{
 	
-	@NotNull(message = "Selecione uma loja.")
+	@NotNull(message = "Selecione uma locadora.")
 	@ManyToOne
-	@JoinColumn(name = "id_loja")
+	@JoinColumn(name = "id_locadora")
 	private Locadora locadora;
 	@NotBlank(message = "Campo obrigatório.")
 	@Column(nullable = false, length = 19)
