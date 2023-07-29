@@ -44,6 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
+				.antMatchers("/bicicletas/listarLocadora").permitAll()
 				.antMatchers("/", "/index", "/error","/bicicletas/listar").permitAll()
 				.antMatchers("/propostas/**","/bicicletas/**").hasAnyAuthority("CLIENTE","LOCADORA")
 				.antMatchers("/usuarios/**", "/admin/**","/admins/**").hasAuthority("ADMIN")
