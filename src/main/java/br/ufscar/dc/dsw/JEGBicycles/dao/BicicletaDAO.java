@@ -6,10 +6,14 @@ import org.springframework.data.repository.CrudRepository;
 
 import br.ufscar.dc.dsw.JEGBicycles.domain.Bicicleta;
 
+import java.time.LocalDateTime;
+
 @SuppressWarnings("unchecked")
 public interface BicicletaDAO extends CrudRepository<Bicicleta, Long>{
 	
 	Bicicleta findById(long id);
+
+	Bicicleta findByDataLocacao(LocalDateTime dataLocacao);
 	
 	List<Bicicleta> findAll();
 	

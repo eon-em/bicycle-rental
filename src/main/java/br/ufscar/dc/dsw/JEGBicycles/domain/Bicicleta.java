@@ -8,6 +8,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import br.ufscar.dc.dsw.JEGBicycles.validation.UniqueDateTime;
+
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "Bicicleta")
@@ -22,6 +26,8 @@ public class Bicicleta extends AbstractEntity<Long>{
 	private Cliente cliente;
 	@NotNull(message = "Campo obrigatório.")
 	@Column(nullable = false, length = 80)
+	@UniqueDateTime(message = "Data de locação já em uso.")
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
 	private LocalDateTime dataLocacao;
 
 	public Locadora getLocadora() {

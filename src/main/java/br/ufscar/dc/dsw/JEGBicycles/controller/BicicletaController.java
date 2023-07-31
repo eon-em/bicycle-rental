@@ -36,6 +36,7 @@ public class BicicletaController {
 	public String cadastrar(Bicicleta bicicleta, ModelMap model) {
 		bicicleta.setLocadora(locadoraService.buscarPorEmail(getUsuario().getEmail()));
 		model.addAttribute("bicicleta", bicicleta);
+		model.addAttribute("locadoras", listaLocadoras());
 		return "bicicleta/cadastro";
 	}
 	

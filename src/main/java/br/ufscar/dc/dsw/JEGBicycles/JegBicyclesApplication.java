@@ -39,7 +39,7 @@ public class JegBicyclesApplication {
 			
 			//Locadoras
 			Locadora l1 = new Locadora();
-			l1.setEmail("locadora 1");
+			l1.setEmail("loc1@gmail.com");
 			l1.setPapel("LOCADORA");
 			l1.setSenha(encoder.encode("123"));
 			l1.setNome("locadora1");
@@ -49,7 +49,7 @@ public class JegBicyclesApplication {
 			locadoraDAO.save(l1);
 			
 			Locadora l2 = new Locadora();
-			l2.setEmail("locadora 2");
+			l2.setEmail("loc2@gmail.com");
 			l2.setPapel("LOCADORA");
 			l2.setSenha(encoder.encode("123"));
 			l2.setNome("locadora1");
@@ -59,7 +59,7 @@ public class JegBicyclesApplication {
 			locadoraDAO.save(l2);
 			
 			Locadora l3 = new Locadora();
-			l3.setEmail("locadora 3");
+			l3.setEmail("loc3@gmail.com");
 			l3.setPapel("LOCADORA");
 			l3.setSenha(encoder.encode("123"));
 			l3.setNome("locadora3");
@@ -69,7 +69,7 @@ public class JegBicyclesApplication {
 			locadoraDAO.save(l3);
 			
 			Locadora l4 = new Locadora();
-			l4.setEmail("locadora 4");
+			l4.setEmail("loc4@gmail.com");
 			l4.setPapel("LOCADORA");
 			l4.setSenha(encoder.encode("123"));
 			l4.setNome("locadora4");
@@ -80,7 +80,7 @@ public class JegBicyclesApplication {
 			
 			//Clientes
 			Cliente cl1 = new Cliente();
-			cl1.setEmail("cliente1");
+			cl1.setEmail("cliente1@gmail.com");
 			cl1.setPapel("CLIENTE");
 			cl1.setSenha(encoder.encode("123"));
 			cl1.setCpf("124564564");
@@ -91,7 +91,7 @@ public class JegBicyclesApplication {
 			clienteDAO.save(cl1);
 			
 			Cliente cl2 = new Cliente();
-			cl2.setEmail("cliente2");
+			cl2.setEmail("cliente2@gmail.com");
 			cl2.setPapel("CLIENTE");
 			cl2.setSenha(encoder.encode("123"));
 			cl2.setCpf("1245645");
@@ -102,7 +102,7 @@ public class JegBicyclesApplication {
 			clienteDAO.save(cl2);
 			
 			Cliente cl3 = new Cliente();
-			cl3.setEmail("cliente3");
+			cl3.setEmail("cliente3@gmail.com");
 			cl3.setPapel("CLIENTE");
 			cl3.setSenha(encoder.encode("123"));
 			cl3.setCpf("1245");

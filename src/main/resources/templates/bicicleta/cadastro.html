@@ -12,10 +12,12 @@
 			<input type="hidden" id="id" th:field="*{id}">
 			
 			<span th:if="${#fields.hasErrors('locadora.id')}" th:errors="*{locadora.id}" class="text-danger"></span>
-			<input type="text" th:field="*{locadora.id}" placeholder="Id Locadora" class="form-control mb-4 col-4" readonly>
-			
+			<select th:field="*{locadora.id}" class="form-control mb-4 col-4" required="required">
+				<option th:each="id : ${locadoras}" th:value="${id}" th:text="${id}"></option>
+			</select>
+
 			<span th:if="${#fields.hasErrors('dataLocacao')}" th:errors="*{dataLocacao}" class="text-danger">CAMPO OBRIGATÓRIO</span>
-			<input type="datetime-local" th:field="*{dataLocacao}" placeholder="dataLocacao" class="form-control mb-4 col-4" required="required">
+			<input type="datetime-local" th:field="*{dataLocacao}" placeholder="dataLocacao" class="form-control mb-4 col-4" required="required" pattern="yyyy-MM-dd'T'HH:mm">
 			
 			<button type="submit" class="btn btn-info col-2">Salvar</button>
 		</form>
