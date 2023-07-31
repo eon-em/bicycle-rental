@@ -16,7 +16,6 @@
 	<div sec:authorize="hasAuthority('LOCADORA')">
 		<ul>
             <li>
-            	<a th:href="@{/bicicletas/cadastrar}">Adicione Nova Bicicleta</a>
             	<a th:href="@{/locadoras/listarBicicleta}">Lista de Bicicletas da Locadora</a>
             	<form th:action="@{/logout}" method="post">
             		<input type="submit" value="Sign Out"/>
@@ -44,6 +43,7 @@
 		<ul>
             <li>
             	<a th:href="@{/bicicletas/listar}">Listar Bicicletas</a>
+            	<a th:href="@{/bicicletas/cadastrar}">Adicione Nova Bicicleta</a>
             	<form th:action="@{/logout}" method="post">
             		<input type="submit" value="Sign Out"/>
         		</form>
