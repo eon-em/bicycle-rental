@@ -4,6 +4,10 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -31,6 +35,17 @@ public class BicicletaController {
 
 	@Autowired
 	private ILocadoraService locadoraService;
+
+	@GetMapping("/")
+    	public String index(Model model, Locale locale) {
+        	DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.FULL, locale);
+    	
+    		Calendar cal = Calendar.getInstance();
+        	model.addAttribute("dateString", dateFormat.format(cal.getTime()));
+        	model.addAttribute("date", cal.getTime());
+    
+        	return "index";
+    	}
 	
 	@GetMapping("/cadastrar")
 	public String cadastrar(Bicicleta bicicleta, ModelMap model) {
