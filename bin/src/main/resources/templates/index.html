@@ -6,19 +6,19 @@
 <head>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>RCVeiculos</title>
+	<title>JEGBikes</title>
 </head>
 <body>
 	<div sec:authorize="!isAuthenticated()">
 	    <a th:href="@{/login}">Fazer Login</a>
-    	<a th:href="@{/carros/listar}">Listar Veículos</a>
+    	<a th:href="@{/bicicletas/listar}">Listar Veículos</a>
 	</div>
-	<div sec:authorize="hasAuthority('LOJA')">
+	<div sec:authorize="hasAuthority('LOCADORA')">
 		<ul>
             <li>
-            	<a th:href="@{/carros/cadastrar}">Adicione Novo Carro</a>
-            	<a th:href="@{/lojas/listarCarro}">Lista de Carros da Loja</a>
-            	<a th:href="@{/lojas/listarProposta}">Lista de Propostas da Loja</a>
+            	<a th:href="@{/bicicletas/cadastrar}">Adicione Nova Bicicleta</a>
+            	<a th:href="@{/locadoras/listarBicicleta}">Lista de Bicicletas da Locadora</a>
+            	<a th:href="@{/locadoras/listarProposta}">Lista de Propostas da Locadora</a>
             	<form th:action="@{/logout}" method="post">
             		<input type="submit" value="Sign Out"/>
         		</form>
@@ -30,10 +30,10 @@
 		<ul>
             <li>
             	<a th:href="@{/usuarios/listar}">Listar Usuarios</a>
-            	<a th:href="@{/lojas/listar}">Listar Lojas</a>
+            	<a th:href="@{/locadoras/listar}">Listar Locadoras</a>
             	<a th:href="@{/clientes/listar}">Listar Clientes</a>
             	<a th:href="@{/clientes/cadastrar}">Cadastrar Cliente</a>
-            	<a th:href="@{/lojas/cadastrar}">Cadastrar Loja</a>
+            	<a th:href="@{/locadoras/cadastrar}">Cadastrar Locadora</a>
             	<a th:href="@{/usuarios/cadastrar}">Cadastrar Admin</a>
             	<form th:action="@{/logout}" method="post">
             		<input type="submit" value="Sign Out"/>
@@ -46,7 +46,7 @@
 		<ul>
             <li>
             	<a th:href="@{/propostas/listar}">Listar Propostas</a>
-            	<a th:href="@{/carros/listar}">Listar Carros</a>
+            	<a th:href="@{/bicicletas/listar}">Listar Bicicletas</a>
             	<form th:action="@{/logout}" method="post">
             		<input type="submit" value="Sign Out"/>
         		</form>

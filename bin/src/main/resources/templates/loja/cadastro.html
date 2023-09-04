@@ -2,20 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8" />
-<title>Gestão de Lojas</title>
+<title>Gestão de Locadoras</title>
 
 </head>
 <body>
 	<div class="container my-2">
-		<h2>Gestão de Lojas</h2>
-		<form action="#" th:action="${loja.id == null} ? @{/lojas/salvar} : @{/lojas/editar}" th:object="${loja}" method="POST" >
+		<h2>Gestão de Locadoras</h2>
+		<form action="#" th:action="${locadora.id == null} ? @{/locadoras/salvar} : @{/locadoras/editar}" th:object="${locadora}" method="POST" >
 			<input type="hidden" id="id" th:field="*{id}">
 			
 			<p>
 				<label for="email">Email:</label> 
 				<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
-				<input th:if="${loja.id != null}" readonly type="text" th:field="*{email}" placeholder="Email" class="form-control mb-4 col-4" required>
-				<input th:if="${loja.id == null}" type="text" th:field="*{email}" placeholder="Email" class="form-control mb-4 col-4" required>
+				<input th:if="${locadora.id != null}" readonly type="text" th:field="*{email}" placeholder="Email" class="form-control mb-4 col-4" required>
+				<input th:if="${locadora.id == null}" type="text" th:field="*{email}" placeholder="Email" class="form-control mb-4 col-4" required>
 				
 				<label for="senha">| Senha:</label> 
 				<span th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}" class="text-danger"></span>
@@ -24,7 +24,7 @@
 				<label for="papel">Papel:</label> 
 				<select class="form-control" th:field="*{papel}"
 					th:classappend="${#fields.hasErrors('papel')} ? is-invalid" required>
-					<option value="LOJA">LOJA</option>
+					<option value="LOCADORA">LOCADORA</option>
 				</select>
 			<p>
 				<label for="nome">Nome:</label> 
@@ -37,15 +37,15 @@
 			<p>
 				<label for="cnpj">CNPJ:</label> 
 				<span th:if="${#fields.hasErrors('cnpj')}" th:errors="*{cnpj}" class="text-danger"></span>
-				<input th:if="${loja.id != null}" readonly type="number" th:field="*{cnpj}" placeholder="CNPJ" class="form-control mb-4 col-4" required>
-				<input th:if="${loja.id == null}" type="number" th:field="*{cnpj}" placeholder="CNPJ" class="form-control mb-4 col-4" required>
+				<input th:if="${locadora.id != null}" readonly type="number" th:field="*{cnpj}" placeholder="CNPJ" class="form-control mb-4 col-4" required>
+				<input th:if="${locadora.id == null}" type="number" th:field="*{cnpj}" placeholder="CNPJ" class="form-control mb-4 col-4" required>
 			
 			</p>
 			<button type="submit" class="btn btn-info col-2" >Salvar</button>
 
 		</form>
 		<hr>
-		<a th:href="@{/lojas/listar}">Retornar para a lista de Lojas</a>
+		<a th:href="@{/locadoras/listar}">Retornar para a lista de Locadoras</a>
 	</div>
 </body>
 </html>

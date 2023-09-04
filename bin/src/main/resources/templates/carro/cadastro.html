@@ -2,17 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8" />
-<title>Gestão de Carros</title>
+<title>Gestão de Bicicletas</title>
 
 </head>
 <body>
 	<div class="container my-2">
-		<h2>Gestão de Carros</h2>
-		<form action="#" th:action="${carro.id == null} ? @{/carros/salvar} : @{/carros/editar}" th:object="${carro}" method="POST">
+		<h2>Gestão de Bicicletas</h2>
+		<form action="#" th:action="${bicicleta.id == null} ? @{/bicicletas/salvar} : @{/bicicletas/editar}" th:object="${bicicleta}" method="POST">
 			<input type="hidden" id="id" th:field="*{id}">
 			
-			<span th:if="${#fields.hasErrors('loja.id')}" th:errors="*{loja.id}" class="text-danger"></span>
-			<input type="text" th:field="*{loja.id}" placeholder="Id Loja" class="form-control mb-4 col-4" readonly>
+			<span th:if="${#fields.hasErrors('locadora.id')}" th:errors="*{locadora.id}" class="text-danger"></span>
+			<input type="text" th:field="*{locadora.id}" placeholder="Id Locadora" class="form-control mb-4 col-4" readonly>
 			
       		<span th:if="${#fields.hasErrors('placa')}" th:errors="*{placa}" class="text-danger"></span>
 			<input type="text" th:field="*{placa}" placeholder="Placa" class="form-control mb-4 col-4" required="required">
@@ -41,7 +41,7 @@
 			<button type="submit" class="btn btn-info col-2">Salvar</button>
 		</form>
 		<hr>
-		<a th:href="@{/lojas/listarCarro}">Retornar para a lista de carros</a>
+		<a th:href="@{/locadoras/listarBicicleta}">Retornar para a lista de bicicletas</a>
 	</div>
 </body>
 </html>
