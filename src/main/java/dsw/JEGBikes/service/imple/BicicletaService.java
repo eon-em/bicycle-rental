@@ -23,7 +23,6 @@ public class BicicletaService implements IBicicletaService{
 	public void excluir(Long id) {
 		dao.deleteById(id);
 	}
-	
 
 	@Transactional(readOnly = true)
 	public Bicicleta buscarPorId(Long id) {
@@ -38,5 +37,10 @@ public class BicicletaService implements IBicicletaService{
 	@Transactional(readOnly = true)
 	public List<Bicicleta> buscaPorLocadora(long id) {
 		return dao.findByLocadoraId(id);
+	}
+
+	@Transactional(readOnly = true)
+	public List<Bicicleta> buscaPorCliente(long id) {
+		return dao.findByClienteId(id);
 	}
 }

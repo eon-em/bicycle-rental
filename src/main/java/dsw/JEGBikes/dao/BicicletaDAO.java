@@ -24,4 +24,8 @@ public interface BicicletaDAO extends CrudRepository<Bicicleta, Long>{
 	
 	@Query("Select b FROM Bicicleta b LEFT JOIN  Locadora l  ON b.locadora = l.id WHERE l.id =:id")
 	List<Bicicleta> findByLocadoraId(@Param("id") long id);
+
+
+	@Query("Select b FROM Bicicleta b LEFT JOIN  Cliente c  ON b.cliente = c.id WHERE c.id =:id")
+	List<Bicicleta> findByClienteId(@Param("id") long id);
 }

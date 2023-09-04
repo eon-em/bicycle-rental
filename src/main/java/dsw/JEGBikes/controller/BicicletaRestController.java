@@ -107,6 +107,24 @@ public class BicicletaRestController {
 		return ResponseEntity.ok(bicicleta);
 	}
 
+	@GetMapping(path = "/bicicletas/clientes/{id}")
+	public ResponseEntity<List<Bicicleta>> listaCliente(@PathVariable("id") long id) {
+		List<Bicicleta> lista = service.buscaPorCliente(id);
+		if (lista.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(lista);
+	}
+
+	@GetMapping(path = "/bicicletas/locadoras/{id}")
+	public ResponseEntity<List<Bicicleta>> listaLocadora(@PathVariable("id") long id) {
+		List<Bicicleta> lista = service.buscaPorLocadora(id);
+		if (lista.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(lista);
+	}
+
 	@PostMapping(path = "/bicicletas/locadoras/{id}")
 	@ResponseBody
 	public ResponseEntity<Bicicleta> cria(@RequestBody JSONObject json) {

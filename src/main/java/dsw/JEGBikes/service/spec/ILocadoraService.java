@@ -14,4 +14,6 @@ public interface ILocadoraService {
 	void excluir(Long id);
 	
 	Locadora buscarPorEmail(String email);
+
+	List<Locadora> buscarPorCidade(String cidade);
 }

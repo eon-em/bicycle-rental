@@ -59,6 +59,7 @@ public class LocadoraRestController {
 		locadora.setDescricao((String) json.get("descricao"));
 		locadora.setPapel((String) json.get("papel"));
 		locadora.setSenha((String) json.get("senha"));
+		locadora.setCidade((String) json.get("cidade"));
  }
 
 	@GetMapping(path = "/locadoras")
@@ -77,6 +78,15 @@ public class LocadoraRestController {
 			return ResponseEntity.notFound().build();
 		}
 		return ResponseEntity.ok(locadora);
+ }
+
+	@GetMapping(path = "/locadoras/cidades/{nome}")
+	public ResponseEntity<List<Locadora>> listaCidade(@PathVariable("nome") String cidade) {
+		List<Locadora> lista = service.buscarPorCidade(cidade);
+		if (lista.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(lista);
  }
 
 	@PostMapping(path = "/locadoras")

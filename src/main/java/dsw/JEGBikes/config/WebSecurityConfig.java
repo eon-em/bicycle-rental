@@ -45,11 +45,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 
 		http.csrf().disable().authorizeRequests()
-				.antMatchers("/bicicletas/listarLocadora").permitAll()
-				.antMatchers("/clientes", "/locadoras").permitAll()
+				.antMatchers("/clientes", "/locadoras", "/bicicletas").permitAll()
 				.antMatchers("/clientes/{\\d+}", "/locadoras/{\\d+}").permitAll()
-				.antMatchers("/propostas/bicicletas/{\\d+}").permitAll()
-				.antMatchers("/propostas/clientes/{\\d+}").permitAll()
+				.antMatchers("/bicicletas/{\\d+}").permitAll()
+				.antMatchers("/locadoras/cidades/{\\\\d+}").permitAll()
+				.antMatchers("/bicicletas/clientes/{\\d+}").permitAll()
 				.antMatchers("/bicicletas/locadoras/{\\d+}").permitAll()
 				.anyRequest().authenticated()
 				.and().formLogin().loginPage("/login").permitAll()

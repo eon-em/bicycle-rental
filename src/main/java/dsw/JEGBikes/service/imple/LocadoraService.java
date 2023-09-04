@@ -35,6 +35,11 @@ public class LocadoraService implements ILocadoraService{
 	}
 
 	@Transactional(readOnly = true)
+	public List<Locadora> buscarPorCidade(String cidade) {
+		return dao.findBycidade(cidade);
+	}
+
+	@Transactional(readOnly = true)
 	public List<Locadora> buscarTodos() {
 		return dao.findAll();
 	}
