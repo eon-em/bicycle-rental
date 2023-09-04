@@ -39,9 +39,4 @@ public class BicicletaService implements IBicicletaService{
 	public List<Bicicleta> buscaPorLocadora(long id) {
 		return dao.findByLocadoraId(id);
 	}
-
-	@Transactional(readOnly = true)
-	public List<Bicicleta> buscaPorModelo(String modelo) {
-		return dao.findByModelo(modelo);
-	}
 }

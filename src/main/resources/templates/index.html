@@ -11,7 +11,7 @@
 <body>
 	<div sec:authorize="!isAuthenticated()">
 	    <a th:href="@{/login}">Fazer Login</a> <br/>
-    	<a th:href="@{/bicicletas/listar}">Listar Veículos</a>
+    	<a th:href="@{/bicicletas/listarLocadora}">Listar Locadoras</a>
 	</div>
 	<div sec:authorize="hasAuthority('LOCADORA')">
 		<ul>

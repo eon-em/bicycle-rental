@@ -3,6 +3,8 @@ package dsw.JEGBikes.controller;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import dsw.JEGBikes.domain.Bicicleta;
+import dsw.JEGBikes.domain.Cliente;
 import dsw.JEGBikes.domain.Locadora;
 import dsw.JEGBikes.service.spec.IBicicletaService;
 
@@ -52,6 +55,18 @@ public class BicicletaRestController {
 		}
 	}
 
+    @SuppressWarnings("unchecked")
+	private void parse(Cliente cliente, JSONObject json) {
+		Map<String, Object> map = (Map<String, Object>) json.get("cliente");
+		
+		Object id = map.get("id");
+		if (id instanceof Integer) {
+			cliente.setId(((Integer) id).longValue());
+		} else {
+			cliente.setId((Long) id);
+		}
+	}
+
 	private void parse(Bicicleta bicicleta, JSONObject json) {
 		
 		Object id = json.get("id");
@@ -63,18 +78,15 @@ public class BicicletaRestController {
 			}
 		}
 
-		bicicleta.setPlaca((String) json.get("placa"));
-		bicicleta.setModelo((String) json.get("modelo"));
-		bicicleta.setChassi((String) json.get("chassi"));
-        bicicleta.setAno((Integer) json.get("ano"));
-        bicicleta.setQuilometragem((Integer) json.get("quilometragem"));
-        bicicleta.setDescricao((String) json.get("descricao"));
-        bicicleta.setValor(BigDecimal.valueOf((Double) json.get("valor")));
-		bicicleta.setFotos((String) json.get("fotos"));
+		bicicleta.setDataLocacao(LocalDateTime.parse((String) json.get("dataLocacao")));
 
 		Locadora locadora = new Locadora();
 		parse(locadora, json);
 		bicicleta.setLocadora(locadora);
+
+		Cliente cliente = new Cliente();
+		parse(cliente, json);
+		bicicleta.setCliente(cliente);
 	}
 
 	@GetMapping(path = "/bicicletas")
@@ -94,19 +106,6 @@ public class BicicletaRestController {
 		}
 		return ResponseEntity.ok(bicicleta);
 	}
-
-
-
-	@GetMapping(path = "/bicicletas/modelos/{modelo}")
-	public ResponseEntity<List<Bicicleta>> listaPorLocadora(@PathVariable("modelo") String modelo) {
-		List<Bicicleta> lista = service.buscaPorModelo(modelo);
-		
-		if (lista.isEmpty()) {
-			return ResponseEntity.notFound().build();
-		}
-		return ResponseEntity.ok(lista);
-	}
-
 
 	@PostMapping(path = "/bicicletas/locadoras/{id}")
 	@ResponseBody

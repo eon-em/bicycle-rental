@@ -14,6 +14,4 @@ public interface IBicicletaService {
 	void excluir(Long id);
 	
 	List<Bicicleta> buscaPorLocadora(long id);
-
-    List<Bicicleta> buscaPorModelo(String modelo);
 }

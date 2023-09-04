@@ -36,6 +36,7 @@ public class BicicletaController {
 	public String cadastrar(Bicicleta bicicleta, ModelMap model) {
 		bicicleta.setLocadora(locadoraService.buscarPorEmail(getUsuario().getEmail()));
 		model.addAttribute("bicicleta", bicicleta);
+		model.addAttribute("locadoras", listaLocadoras());
 		return "bicicleta/cadastro";
 	}
 	
@@ -48,6 +49,12 @@ public class BicicletaController {
 	public String listar(ModelMap model) {
 		model.addAttribute("bicicletas", bicicletaService.buscarTodos());
 		return "bicicleta/lista";
+	}
+
+	@GetMapping("/listarLocadora")
+	public String listarLocadora(ModelMap model) {
+		model.addAttribute("locadoras", listaLocadoras());
+		return "bicicleta/listaLocadora";
 	}
 	
 	@PostMapping("/salvar")
